@@ -1,0 +1,27 @@
+Sub SaveSheetsAsPDF()
+
+    Dim ws As Worksheet
+    Dim fileName As String
+   
+    ' Ekran güncellemelerini kapat
+    Application.ScreenUpdating = False
+   
+    ' Dosya adını SYFVERİ' ndeki hücrelerden al
+    fileName1 = "C:\Users\salih\Downloads\pdf_adini_buraya_giriniz.pdf"
+   
+    ' Sayfaları PDF olarak kaydet
+    Sheets(Array("SYF1", "SYF2", "SYF3")).Select
+    
+    ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, _
+    fileName:=fileName1, _
+    Quality:=xlQualityStandard, _
+    IncludeDocProperties:=True, _
+    IgnorePrintAreas:=False, _
+    OpenAfterPublish:=False
+          
+    ' Ekran güncellemelerini aç
+    Application.ScreenUpdating = True
+   
+    MsgBox "PDF dosyası başarıyla kaydedildi: " & pdfPath
+    
+End Sub
